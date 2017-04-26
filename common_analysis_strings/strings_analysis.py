@@ -1,5 +1,6 @@
 from common_analysis_base import AnalysisPluginFile
-from common_helper_files import get_directory_for_filename, get_version_string_from_git, read_in_chunks
+from common_helper_files import read_in_chunks
+from . import __version__
 
 import re
 import string
@@ -15,7 +16,7 @@ class StringMatch:
         return '[{}]: ({}:{}) -> {}'.format(self.__class__.__name__, self.begin, self.end, self.content)
 
 
-system_version = get_version_string_from_git(get_directory_for_filename(__file__))
+system_version = __version__
 
 default_chunk_size = 64 * 1024 * 1024
 
